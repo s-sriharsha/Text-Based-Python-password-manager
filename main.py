@@ -16,6 +16,9 @@ if password_input == password:
       file = open("database.txt","r")
       data = file.readlines()
       file.close()
+      for line in range(len(data)):
+        if data[line] == "\n":
+          data.pop(line)
       if len(data) > 0:
         for credential in data:
           credential = credential.strip().split(",")
