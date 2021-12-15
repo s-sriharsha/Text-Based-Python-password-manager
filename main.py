@@ -42,10 +42,12 @@ if password_input == password:
       user_id = input("Enter User ID: ")
       user_password = input("Enter Password: ")
       final_data = str(len(data)+1)+","+account_name+","+user_id+","+user_password
-      data.append(final_data)
       file = open("database.txt","w")
-      for line in data:
-        file.write(line)
+      if len(data) > 0:
+        for line in data:
+          file.write(line)
+        file.write("\n")
+      file.write(final_data)
       file.close()
       print("User credentials are added successfully")
     elif choice == "3":
